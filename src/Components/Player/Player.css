@@ -1,0 +1,23 @@
+.song-det{
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+
+}
+
+.det-header{
+    background-color: #121316;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: 1px #26292e solid;
+    
+}
+
+.song-det p {
+    margin: 0;
+}

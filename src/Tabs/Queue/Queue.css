@@ -1,0 +1,27 @@
+.search-list{
+    margin-top: 20px;
+}
+.category{
+    margin-bottom: 10px;
+}
+
+.category-heading{
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0px 0px 0px 30px !important;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.more-tab{
+    width: 100vw;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px #26292e solid;
+    border-bottom: 1px #26292e solid;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
