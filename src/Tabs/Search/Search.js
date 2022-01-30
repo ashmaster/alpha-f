@@ -67,45 +67,52 @@ const SearchTab = forwardRef((props, ref) => {
         setTimeout(() => {
           setFocus(false)
         }, 500)
-        let url = `https://www.googleapis.com/youtube/v3/search?maxResults=20&order=relevance&relevanceLanguage=en&regionCode=IN&topicId=/m/04rlf&part=snippet&q=${search}&key=AIzaSyDzu7L3oDbycrunYE0_mQVPXRbf_ZVeeEM`
+        let url = `https://jiosaavn.com/api.php?__call=autocomplete.get&_format=json&query=${search}`
         let idString = "";
-      axios.get(url)
-      .then((response) => {
-        setAll(response.data.items)
-        response.data.items.map((video) => {
-            
-
-          if (video.id.kind === "youtube#video"){
-              idString += video.id.videoId + ","
-          }
-          else if (video.id.kind === "youtube#playlist"){
-                video.type = "PLAYLIST"
-                setPlaylists([...playlists, video])
-          }
-          else if (video.id.kind === "youtube#channel"){
-            video.type = "ARTIST"
-            setChannels([...channels, video])
-      }
-            
-
-          }
-
-
-        );
-        let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${idString}&key=AIzaSyDzu7L3oDbycrunYE0_mQVPXRbf_ZVeeEM`;
-            axios.get(url)
-            .then((result) => {
-              setSongs(result.data.items)
-              setLoading(false)
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-
+      axios.get(url, {
+        headers: {
+          "Access-Control-Allow-Origin" : '*',
+          "Cache-Control" : "s-maxage=300, stale-while-revalidate"
+        }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+      // .then((response) => {
+      //   setAll(response.data.items)
+      //   response.data.items.map((video) => {
+            
+
+      //     if (video.id.kind === "youtube#video"){
+      //         idString += video.id.videoId + ","
+      //     }
+      //     else if (video.id.kind === "youtube#playlist"){
+      //           video.type = "PLAYLIST"
+      //           setPlaylists([...playlists, video])
+      //     }
+      //     else if (video.id.kind === "youtube#channel"){
+      //       video.type = "ARTIST"
+      //       setChannels([...channels, video])
+      // }
+            
+
+      //     }
+
+
+      //   );
+      //   let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${idString}&key=AIzaSyDzu7L3oDbycrunYE0_mQVPXRbf_ZVeeEM`;
+      //       axios.get(url)
+      //       .then((result) => {
+      //         setSongs(result.data.items)
+      //         setLoading(false)
+      //       })
+      //       .catch((error) => {
+      //         console.log(error);
+      //       });
+
+      // })
+      // .catch((error) => {
+      //   console.log(error);
+      // });
     }
 
     const pclick = (item) => {
