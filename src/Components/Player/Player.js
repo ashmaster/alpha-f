@@ -14,7 +14,7 @@ export default function Player(props){
                   <p style={{ fontSize: '16px' }}>{props.song.snippet.title}</p>
                   <p style={{ fontSize: '14px', color: '#ccc' }}>{props.song.snippet.channelTitle}</p>
                 </div>
-                <ReactPlayer playsinline url={`https://music.youtube.com/watch?v=${props.song.id}`} playing = {play} />
+                <ReactPlayer playsinline url={`https://www.youtube.com/watch?v=${props.song.id}`} playing = {play} />
                 <div className = "close-det" onClick = {() => setPlay(!play)}>
                   <IoCloseSharp size = {28} />
                 </div>
